@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
+import Modal from '../components/Modal'
 
 
 export default function Home() {
@@ -9,49 +10,54 @@ export default function Home() {
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
   const [seconds, setSeconds] = useState(0)
+  const [modal, setModal] = useState(false)
 
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date()
+  const SetModal = () => {
+    setModal(true)
+  }
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     const now = new Date()
     
-      const target = new Date('01/10/2022 08:25:20')
-      const difference = target.getTime() - now.getTime()
+  //     const target = new Date('01/10/2022 08:25:20')
+  //     const difference = target.getTime() - now.getTime()
 
-      console.log('The time is now', now);
-      // console.log('The time is target', target);
+  //     console.log('The time is now', now);
+  //     // console.log('The time is target', target);
 
-      const d = Math.floor(difference / (1000 * 60 * 60 * 24))
-      setDays(d)
+  //     const d = Math.floor(difference / (1000 * 60 * 60 * 24))
+  //     setDays(d)
 
-      console.log(d);
+  //     console.log(d);
 
-      const h = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      setHours(h)
+  //     const h = Math.floor(
+  //       (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  //     );
+  //     setHours(h)
 
-      const m = Math.floor(
-        (difference % (1000 * 60 * 60 )) / (1000 * 60)
-      );
-      setMinutes(m)
+  //     const m = Math.floor(
+  //       (difference % (1000 * 60 * 60 )) / (1000 * 60)
+  //     );
+  //     setMinutes(m)
 
-      const s = Math.floor(
-        (difference % (1000 * 60)) / 1000);
-      setSeconds(s);
+  //     const s = Math.floor(
+  //       (difference % (1000 * 60)) / 1000);
+  //     setSeconds(s);
       
-      if (d <= 0 && h <= 0 && m <= 0 && s <= m) { 
-        setParty(true)
+  //     if (d <= 0 && h <= 0 && m <= 0 && s <= m) { 
+  //       setParty(true)
 
-      }
+  //     }
 
-    }, 1000)
+  //   }, 1000)
 
-    return () => {
-      clearInterval(interval)
-    }
+  //   return () => {
+  //     clearInterval(interval)
+  //   }
 
-  }, [])
+  // }, [])
 
   return (
     <div>
@@ -62,7 +68,17 @@ export default function Home() {
       </Head>
 
        <main>
-      {
+
+        <nav>
+          <div className="nav-items">
+            <h1>Program Timer</h1> 
+          </div>
+          <div className="nav-items">
+            <button onClick={SetModal}>Add New Program</button>
+          </div>
+        </nav>
+        {modal && <Modal/>}
+      {/* {
         party ? (
           <p>It is Party Time</p>
           ) :
@@ -88,7 +104,7 @@ export default function Home() {
         </div>
             
         )
-      }
+      } */}
      
       </main>
       
