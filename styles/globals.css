@@ -26,7 +26,10 @@ nav {
   display: flex;
   height: 50px;
   padding: 0 20px;
-  align-items: center
+  align-items: center;
+  justify-content: center;
+  gap: 50%;
+  margin-bottom: 20px;
 }
 
 .nav-item {
@@ -49,15 +52,17 @@ button:hover {
 }
 
 .modal {
-  top: 30%;
+  position: fixed;
+  top: 15%;
+  left: 33%;
   border-radius: 5px;
-  margin: auto;
   max-width: 40%;
   background-color: white;
   height: 400px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   font-family: Helvetica, sans-serif;
   padding: 0.75rem ;
+  z-index: 20;
 }
 
 .heading {
@@ -83,3 +88,17 @@ input:focus {
   outline: 0;
   border-color: #bd8200;
 }
+
+/* section */
+
+.section {
+  margin-top: 10%;
+  text-align: center;
+  max-height: 100vh;
+}
+
+h2 {
+  font-size: 80px;
+  color: #bd8200;
+}
+

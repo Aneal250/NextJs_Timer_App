@@ -17,6 +17,10 @@ export default function Home() {
     setModal(true)
   }
 
+  const RemoveModal = () => {
+    setModal(false)
+  }  
+
   // useEffect(() => {
   //   const interval = setInterval(() => {
   //     const now = new Date()
@@ -71,13 +75,13 @@ export default function Home() {
 
         <nav>
           <div className="nav-items">
-            <h1>Program Timer</h1> 
+            <h1>Simple Program Timer App</h1> 
           </div>
           <div className="nav-items">
             <button onClick={SetModal}>Add New Program</button>
           </div>
         </nav>
-        {modal && <Modal/>}
+        {modal && <Modal removeModal={RemoveModal}/>}
       {/* {
         party ? (
           <p>It is Party Time</p>
@@ -106,6 +110,11 @@ export default function Home() {
         )
       } */}
      
+        <section className='section'>
+          <h2><span>00 : </span> <span>00 : </span> <span>00</span></h2>
+          <h3><span>Hour : </span> <span>Minutes : </span> <span>seconds </span></h3>
+
+        </section>
       </main>
       
     </div>

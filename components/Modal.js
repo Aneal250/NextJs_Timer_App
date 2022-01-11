@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Modal() {
+function Modal({removeModal}) {
 
     const [programTime, setProgramTime] = useState('')
     const [programTitle, setProgramTitle] = useState('')
@@ -35,9 +35,10 @@ function Modal() {
                         onChange={(e) => setProgramTime(e.target.value)}
                         />
                 </div>
+                
                 <div className="input_div">
+                    <button type="button" onClick={removeModal}>Cancel</button>
                     <button onClick={ProgramsDetails}>Add Program</button>
-                    <button >Add Program</button>
                 </div>
             </form>
 
